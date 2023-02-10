@@ -10,7 +10,7 @@ users_schema = UserSchema(many=True)
 
 class TaskSchema(ma.Schema):
     class Meta:
-        fields = ("id", "data", "date", "user_id")
+        fields = ("id", "data", "status", "user_id")
 
 task_schema = TaskSchema()
 tasks_schema = TaskSchema(many=True)
