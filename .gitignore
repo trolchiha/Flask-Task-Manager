@@ -1,0 +1,5 @@
+env
+database.db
+app/__pycache__
+app/api/__pycache__
+instance
