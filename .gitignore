@@ -1,5 +1,6 @@
 env
-database.db
+instance
 app/__pycache__
 app/api/__pycache__
-instance
+test/__pycache__
+test/.pytest_cache
