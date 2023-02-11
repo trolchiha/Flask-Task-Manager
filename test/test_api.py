@@ -77,3 +77,5 @@ def test_can_delete_user():
     # get the user and check that it's not found
     read_user_response = read_user(user_id)
     assert read_user_response.status_code == 404
+
+
