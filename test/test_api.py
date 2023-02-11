@@ -41,8 +41,39 @@ def test_can_create_user():
     read_user_response = read_user(user_id)
     assert read_user_response.status_code == 200
 
-    # check the data 
+    # validate the data 
     read_user_data = read_user_response.json()
     assert read_user_data["username"] == payload["username"]
     assert read_user_data["password"] == payload["password"]
     
+def test_can_update_user():
+    # create new user
+    payload = new_user_payload()
+    response = create_user(payload)
+    assert response.status_code == 200
+    user_id = response.json()["id"]
+
+    # update the user
+    new_payload = new_user_payload()
+    update_user_response = update_user(user_id, new_payload)
+    assert update_user_response.status_code == 200
+
+    # validate changes
+    update_user_data = update_user_response.json()
+    assert update_user_data["username"] == new_payload["username"]
+    assert update_user_data["password"] == new_payload["password"]
+
+def test_can_delete_user():
+    # create user
+    payload = new_user_payload()
+    response = create_user(payload)
+    assert response.status_code == 200
+    user_id = response.json()["id"]
+
+    # delete the user
+    delete_user_response = delete_user(user_id)
+    assert delete_user_response.status_code == 200
+    
+    # get the user and check that it's not found
+    read_user_response = read_user(user_id)
+    assert read_user_response.status_code == 404
