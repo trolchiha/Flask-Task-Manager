@@ -4,6 +4,7 @@ html, body {
     padding: 0;
     height: 100%;
     width: 100%;
+    background-color: #e0def4;
 }
 
 a {
@@ -22,7 +23,7 @@ a:hover {
 
 ul.mainmenu {
     list-style: none;
-    background: #525254;
+    background: #21202e;
     height: 60px;
     margin: 0;
     padding: 0;
@@ -41,12 +42,12 @@ ul.mainmenu li.last {
 }
 
 ul.mainmenu li a {
-    color: #ffffff;
+    color: #f8b6b8;
     text-decoration: none;
 }
 
 ul.mainmenu li a:hover {
-    color: #a7a6a6;
+    color: #ea9a97;
 }
 
 .flash {
@@ -54,13 +55,13 @@ ul.mainmenu li a:hover {
 }
 
 .flash.success {
-    border: 1px solid #21DB56;
-    background: #AEFFC5;
+    border: 1px solid #9ccfd8c9;
+    background: #9ccfd8;
 }
 
 .flash.error {
-    border: 1px solid #FF4343;
-    background: #FF9C9C;
+    border: 1px solid#eb6f92b4;
+    background: #eb6f92;
 }
 
 .form {
@@ -76,11 +77,13 @@ ul.mainmenu li a:hover {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    
   }
   
 .title {
     font-size: 50px;
     margin-bottom: 50px;
+    color: #26233a;
 }
 
 .inputContainer {
@@ -127,11 +130,11 @@ ul.mainmenu li a:hover {
     z-index: 10;
     font-size: 14px;
     font-weight: 600;
-    color: rgb(33, 96, 222);
+    color: #00738e;
 }
 
 .input:focus {
-    border: 2px solid rgb(33, 96, 222);
+    border: 2px solid #00738e;
 }
 
 .input:not(:placeholder-shown)+ .label {
@@ -147,7 +150,7 @@ ul.mainmenu li a:hover {
     /* margin-left: auto; */
     padding: 15px 172px;
     border: none;
-    background-color: rgb(33, 96, 222);
+    background-color: #00738e;
     color: white;
     border-radius: 6px;
     cursor: pointer;
@@ -156,6 +159,22 @@ ul.mainmenu li a:hover {
   }
   
 .submitBtn:hover {
-    background-color: rgb(56, 111, 219);
+    background-color: #458594;
     transform: translateY(-2px);
+}
+
+.container{
+    /* border: 5px solid; */
+    margin: auto;
+    width: 40%;
+    padding: 25px 38px;
+    font-size: 25px;
+    transition: all .2s ease-in-out;
+    background-color: #908caa;
+    color: #1f1d2e;
+}
+
+.container:hover{
+    background-color: #6e6a86;
+    transform: scale(1.05); 
 }

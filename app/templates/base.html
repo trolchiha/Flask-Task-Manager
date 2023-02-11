@@ -3,18 +3,14 @@
 <html>
 <head>
     <title> {{ title }}</title>
+    {%- block mainmenu -%}
+    <ul class="mainmenu">
+        <li><a href="/profile">{{current_user}}</a></li>
+        <li><a href="/">Tasks</a></li>
+    </ul>
+    {% endblock mainmenu -%}
 </head>
 <body>
-{% block content -%}
-    {%- block mainmenu -%}
-        <ul class="mainmenu">
-            <li><a href="/profile">Profile</a></li>
-            <li><a href="/">Tasks</a></li>
-        </ul>
-    {% endblock mainmenu -%}
-    <!-- <div class="clear"></div> -->
-    <!-- <div class="content"> -->
-{% endblock -%}
-<!-- </div> -->
+{% block body %}{% endblock %}
 </body>
 </html>

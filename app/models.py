@@ -7,6 +7,9 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(150), nullable=False)
     tasks = db.relationship('Task', cascade="all, delete")
 
+    def __str__(self):
+        return self.username
+
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     data = db.Column(db.String(10000), nullable=False)

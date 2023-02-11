@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<ol type = "1">
+    {% for task in tasks %}
+    <br>
+        <div class="container">
+            <li>{{ task.data }}</li>
+        </div>
+        
+    {% endfor %}
+</ol>
+{% endblock %}
