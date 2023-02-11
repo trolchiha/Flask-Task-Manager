@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<link type="text/css" href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet"/>
+<html>
+<head>
+    <title> {{ title }}</title>
+</head>
+<body>
+{% block content -%}
+    {%- block mainmenu -%}
+        <ul class="mainmenu">
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/">Tasks</a></li>
+        </ul>
+    {% endblock mainmenu -%}
+    <!-- <div class="clear"></div> -->
+    <!-- <div class="content"> -->
+{% endblock -%}
+<!-- </div> -->
+</body>
+</html>
