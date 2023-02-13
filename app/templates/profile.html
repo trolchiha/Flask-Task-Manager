@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<form method="post" class="profileform">
+    {% for cat, msg in get_flashed_messages(True) %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+    {% endfor %}
+    <h1 class="title" style="margin-bottom: 30px">User profile</h1>
+    <div class="taskstodo"><p >Tasks to do: </p></div>
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="a" name="username" value="{{ user.username }}">
+        <label for="username" class="label">Username</label>
+    </div>
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="a" name="password">
+        <label for="password1" class="label">Password</label>
+    </div>
+
+    <div class="inputContainer">
+        <input type="text" class="input" placeholder="a" name="new_password">
+        <label for="password1" class="label">New password</label>
+    </div>
+    <input type="submit" class="profileBtn" value="Update">
+    <a class="profileBtn" style="background-color: #ea9a97;" href="{{ url_for('auth.logout') }}">Log out</a>
+    <a class="profileBtn" style="background-color: #ea9a97;" href="{{url_for('views.delete_profile', user_id=user.id)}}">Delete</a>
+</form>
+{% endblock %}

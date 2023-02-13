@@ -12,11 +12,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: #CC0000;
-    text-decoration: underline;
-}
-
 •clear {
     clear: both;
 }
@@ -177,4 +172,38 @@ ul.mainmenu li a:hover {
 .container:hover{
     background-color: #6e6a86;
     transform: scale(1.05); 
+}
+
+.profileBtn {
+    /* display: block; */
+    margin-left: auto;
+    padding: 12px 20px;
+    border: none;
+    background-color: #00738e;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+    margin: 5px;
+  }
+  
+.profileBtn:hover {
+    background-color: #458594;
+}
+
+.profileform {
+    background-color: white;
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
+    margin: 70px 70px;
+}
+
+.taskstodo{
+    font-size: x-large;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color:#1f1d2e;
 }
