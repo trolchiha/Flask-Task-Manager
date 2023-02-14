@@ -186,7 +186,9 @@ ul.mainmenu li a:hover {
     border-radius: 8px;
     padding: 20px 40px;
     box-shadow: 0 10px 25px rgba(92, 99, 105, .2);
-    margin: 70px 70px;
+    position: absolute;
+    top: 25%;
+    left: 40%;    
 }
 
 .taskstodo{
@@ -221,23 +223,7 @@ ul.mainmenu li a:hover {
   }
 
 
-  .container{
-    /* border: 5px solid; */
-    margin: center;
-    width: 45%;
-    max-height: 50px;
-    padding: 15px 40px;
-    font-size: 25px;
-    background-color: #908caa;
-    color: #1f1d2e;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-.element:hover{
+ .element:hover{
     color: #444064;
 }
 

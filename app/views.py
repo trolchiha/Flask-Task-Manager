@@ -23,6 +23,7 @@ def home():
     
     return render_template('tasks.html', title="Tasks", tasks=tasks)
 
+
 @views.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
@@ -51,6 +52,7 @@ def profile():
         
     return render_template('profile.html', title="Profile", user=user)
 
+
 @views.route('/profile-delete/<int:user_id>')
 @login_required
 def delete_profile(user_id):
@@ -59,6 +61,7 @@ def delete_profile(user_id):
     db.session.commit()
     flash('Your profile was deleted!', category='success')
     return redirect(url_for('auth.sign_up'))
+
 
 @views.route('/task/<int:task_id>', methods=['GET', 'POST'])
 @login_required
@@ -69,16 +72,6 @@ def task(task_id):
         db.session.commit()
 
     return render_template('update-task.html', title="Task", task=task)
-
-
-@views.route('/task-delete/<int:task_id>')
-@login_required
-def delete_task(task_id):
-    task = Task.query.get_or_404(task_id)
-    db.session.delete(task)
-    db.session.commit()
-    flash('Your task was deleted!', category='success')
-    return redirect(url_for('views.home'))
 
 
 @views.route('/task-create', methods=['GET', 'POST'])
@@ -93,6 +86,17 @@ def create_task():
         return redirect(url_for('views.home'))
 
     return render_template('create-task.html', title="New task")
+
+
+@views.route('/task-delete/<int:task_id>')
+@login_required
+def delete_task(task_id):
+    task = Task.query.get_or_404(task_id)
+    db.session.delete(task)
+    db.session.commit()
+    flash('Your task was deleted!', category='success')
+    return redirect(url_for('views.home'))
+
 
 def check_password(password, new_password, old_password):
     
