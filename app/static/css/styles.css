@@ -207,3 +207,27 @@ ul.mainmenu li a:hover {
     margin-bottom: 15px;
     color:#1f1d2e;
 }
+
+.inputData {
+    /* position: relative; */
+    height: 250px;
+    width: 100%;
+    margin-bottom: 17px;
+}
+
+.updateTask {
+    width: 50%;
+    height: 75%;
+    margin: 50px;
+}
+
+.input2 {
+    height: 100%;
+    width: 100%;
+    border: 1px solid #DADCE0;
+    border-radius: 9px;
+    font-size: 22px;
+    padding: 0 20px;
+    z-index: 1;
+    resize: none;
+  }

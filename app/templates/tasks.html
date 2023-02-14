@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% for cat, msg in get_flashed_messages(True) %}
+    <div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
 <ol type = "1">
     {% for task in tasks %}
     <br>
+    <a href="{{url_for('views.task', task_id=task.id)}}" style="color: #1f1d2e;">
         <div class="container">
             <li>{{ task.data }}</li>
         </div>
-        
+    </a>
     {% endfor %}
 </ol>
 {% endblock %}

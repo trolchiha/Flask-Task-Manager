@@ -50,6 +50,26 @@ def delete_profile(user_id):
     flash('Your profile was deleted!', category='success')
     return redirect(url_for('auth.sign_up'))
 
+@views.route('/task/<int:task_id>', methods=['GET', 'POST'])
+@login_required
+def task(task_id):
+    task = Task.query.get_or_404(task_id)
+    if request.method == "POST":
+        task.data = request.form['data']
+        db.session.commit()
+
+    return render_template('update-task.html', title="Task", task=task)
+
+
+@views.route('/task-delete/<int:task_id>')
+@login_required
+def delete_task(task_id):
+    task = Task.query.get_or_404(task_id)
+    db.session.delete(task)
+    db.session.commit()
+    flash('Your task was deleted!', category='success')
+    return redirect(url_for('views.home'))
+
 def check_password(password, new_password, old_password):
     
     if not check_password_hash(old_password, password):

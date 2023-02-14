@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  
+<form method="post">
+    <div class="updateTask">
+        <div class="inputData">
+            <textarea class="input2" name="data">{{ task.data }}</textarea>
+        </div>
+        <input type="submit" class="profileBtn" value="Edit">
+    <a class="profileBtn" style="background-color: #ea9a97;" href="{{url_for('views.delete_task', task_id=task.id)}}">Delete</a>
+    </div>
+</form>
+
+{% endblock %}
