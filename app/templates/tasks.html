@@ -4,14 +4,30 @@
 {% for cat, msg in get_flashed_messages(True) %}
     <div class="flash {{ cat }}">{{ msg }}</div>
 {% endfor %}
-<ol type = "1">
+<h1 class="title" style="text-align: center;">My Tasks</h1>
+<!-- <ol type = "1"> -->
     {% for task in tasks %}
-    <br>
-    <a href="{{url_for('views.task', task_id=task.id)}}" style="color: #1f1d2e;">
-        <div class="container">
-            <li>{{ task.data }}</li>
+    
+        <div class="cntr">
+            <!-- <li> -->
+            {% if task.status == false %}
+                <a href="{{url_for('views.task', task_id=task.id)}}" style="text-decoration: line-through;" class="element">
+                {{ task.data }}
+                </a>
+            {% else %}
+                <a href="{{url_for('views.task', task_id=task.id)}}" class="element">
+                {{ task.data }}
+                </a>
+            {% endif %}
+            <form method="post">
+                {% if task.status == false %}
+                <button class="button-81" value="{{ task.id }}" name="button">Uncompleted</button> 
+                {% else %}
+                <button class="button-81" value="{{ task.id }}" name="button">Completed</button> 
+                {% endif %}
+            </form>
+            <!-- </li> -->
         </div>
-    </a>
     {% endfor %}
-</ol>
+<!-- </ol> -->
 {% endblock %}

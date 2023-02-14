@@ -5,11 +5,21 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 views = Blueprint('views', __name__)
 
-@views.route('/')
+@views.route('/', methods=['GET', 'POST'])
 @login_required
 def home():
     user_id=current_user.id
     tasks = Task.query.filter_by(user_id=user_id).all()
+    if request.method == "POST":
+        task_id = request.form['button']
+        task = Task.query.get_or_404(task_id)
+       
+        if task.status is False:
+            task.status = True
+        else:
+            task.status = False
+        db.session.commit()
+        return redirect(url_for('views.home'))
     
     return render_template('tasks.html', title="Tasks", tasks=tasks)
 
@@ -69,6 +79,20 @@ def delete_task(task_id):
     db.session.commit()
     flash('Your task was deleted!', category='success')
     return redirect(url_for('views.home'))
+
+
+@views.route('/task-create', methods=['GET', 'POST'])
+@login_required
+def create_task():
+    if request.method == "POST":
+        data = request.form['data']
+        new_task = Task(data=data, user_id=current_user.id)
+        db.session.add(new_task)
+        db.session.commit()
+        
+        return redirect(url_for('views.home'))
+
+    return render_template('create-task.html', title="New task")
 
 def check_password(password, new_password, old_password):
     

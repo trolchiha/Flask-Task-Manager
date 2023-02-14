@@ -5,8 +5,9 @@
     <title> {{ title }}</title>
     {%- block mainmenu -%}
     <ul class="mainmenu">
-        <li><a href="/profile">{{current_user}}</a></li>
-        <li><a href="/">Tasks</a></li>
+        <li><a href="{{url_for('views.profile', user_id=current_user.id)}}">{{current_user}}</a></li>
+        <li><a href="{{url_for('views.home')}}">tasks</a></li>
+        <li><a href="{{url_for('views.create_task')}}">new task</a></li>
     </ul>
     {% endblock mainmenu -%}
 </head>
