@@ -26,3 +26,5 @@ $ (env) python main.py
 ## Viewing The App
 
 Go to `http://127.0.0.1:5000`
+***
+or you can just go to https://task-manager-8d03.onrender.com
