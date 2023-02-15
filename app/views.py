@@ -28,7 +28,8 @@ def home():
 @login_required
 def profile():
     user = User.query.filter_by(id=current_user.id).first()
-
+    uncompleted_tasks = count_uncompleted_tasks(user)
+    print(uncompleted_tasks)
     if request.method == "POST":
         new_username = request.form['username']
         password = request.form['password']
@@ -50,7 +51,7 @@ def profile():
             return redirect(url_for('views.profile'))
         
         
-    return render_template('profile.html', title="Profile", user=user)
+    return render_template('profile.html', title="Profile", user=user, uncompleted_tasks=uncompleted_tasks)
 
 
 @views.route('/profile-delete/<int:user_id>')
@@ -124,3 +125,12 @@ def check_username(username, new_username):
         return False
 
     return True
+
+def count_uncompleted_tasks(user):
+    tasks = Task.query.filter_by(user_id=user.id).all()
+    counter = 0
+    for task in tasks:
+        if task.status is True:
+            counter = counter+1
+
+    return counter

@@ -7,7 +7,7 @@
     <div class="flash {{ cat }}">{{ msg }}</div>
     {% endfor %}
     <h1 class="title" style="margin-bottom: 30px">User profile</h1>
-    <div class="taskstodo"><p >Tasks to do: </p></div>
+    <div class="taskstodo"><p >Tasks to do: {{uncompleted_tasks}}</p></div>
     <div class="inputContainer">
         <input type="text" class="input" placeholder="a" name="username" value="{{ user.username }}">
         <label for="username" class="label">Username</label>
