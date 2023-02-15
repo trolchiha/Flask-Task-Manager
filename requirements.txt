@@ -21,6 +21,7 @@ marshmallow==3.19.0
 marshmallow-sqlalchemy==0.28.1
 packaging==23.0
 pluggy==1.0.0
+psycopg2-binary==2.9.5
 pytest==7.2.1
 pytz==2022.7.1
 requests==2.28.2
