@@ -12,8 +12,9 @@ ma = Marshmallow()
 def create_app():
     app = Flask(__name__)
     app.config['SECRET_KEY'] = 'aecq#hbq7&afiohd@!6d*'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost:5432/taskmanager_db'
-    #f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://taskmanager_db_t4ml_user:u0cBoSU3RGyoQjVsJb699XcfSFz0aNui@dpg-cfmd204gqg469ktodc30-a.oregon-postgres.render.com/taskmanager_db_t4ml'
+    # 'postgresql://localhost:5432/taskmanager_db'
+    # f'sqlite:///{DB_NAME}'
 
     db.init_app(app)
     ma.init_app(app)
