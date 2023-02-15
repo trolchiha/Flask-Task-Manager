@@ -11,19 +11,19 @@
         <div class="cntr">
             <!-- <li> -->
             {% if task.status == false %}
-                <a href="{{url_for('views.task', task_id=task.id)}}" style="text-decoration: line-through;" class="element">
+                <a href="{{url_for('views.task', task_id=task.id)}}" class="element">
                 {{ task.data }}
                 </a>
             {% else %}
-                <a href="{{url_for('views.task', task_id=task.id)}}" class="element">
+                <a href="{{url_for('views.task', task_id=task.id)}}" style="text-decoration: line-through;" class="element">
                 {{ task.data }}
                 </a>
             {% endif %}
             <form method="post">
                 {% if task.status == false %}
-                <button class="button-81" value="{{ task.id }}" name="button">Uncompleted</button> 
-                {% else %}
                 <button class="button-81" value="{{ task.id }}" name="button">Completed</button> 
+                {% else %}
+                <button class="button-81" value="{{ task.id }}" name="button">Uncompleted</button> 
                 {% endif %}
             </form>
             <!-- </li> -->

@@ -130,7 +130,7 @@ def count_uncompleted_tasks(user):
     tasks = Task.query.filter_by(user_id=user.id).all()
     counter = 0
     for task in tasks:
-        if task.status is True:
+        if task.status is False:
             counter = counter+1
 
     return counter
