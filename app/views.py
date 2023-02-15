@@ -29,7 +29,7 @@ def home():
 def profile():
     user = User.query.filter_by(id=current_user.id).first()
     uncompleted_tasks = count_uncompleted_tasks(user)
-    print(uncompleted_tasks)
+    
     if request.method == "POST":
         new_username = request.form['username']
         password = request.form['password']
